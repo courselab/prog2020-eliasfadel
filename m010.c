@@ -20,6 +20,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define USAGE "m010 <day> <month>\n"
 
@@ -30,7 +31,31 @@ enum {sun, mon, tue, wed, thu, fri, sat};
 
 int day_of_week (int day, int month)
 {
-  return sun;
+    int v[12];
+    int a, b, c;
+
+    v[0]= 31;
+    v[1]= 29;
+    v[2]= 31;
+    v[3]= 30;
+    v[4]= 31;
+    v[5]= 30;
+    v[6]= 31;
+    v[7]= 31;
+    v[8]= 30;
+    v[9]= 31;
+    v[10]= 30;
+    v[11]= 31;
+
+    a = v[month-1] + day;
+
+    b= a%7;
+
+    c = b + 5;
+    if (c>= 7)
+        c = c-7;
+
+  return c;
 }
 
 /* Do not edit function main. */
@@ -45,12 +70,12 @@ int main (int argc, char **argv)
       printf (USAGE);
       exit(1);
     }
-  
+
   day = atoi(argv[1]);
   month = atoi(argv[2]);
 
   dweek = day_of_week (day, month);
-  
+
   switch (dweek)
     {
     case sun:
@@ -78,6 +103,6 @@ int main (int argc, char **argv)
       printf ("Something wrong\n");
       break;
     }
-  
+
   return 0;
 }

@@ -1,10 +1,10 @@
 /* m011.c - Count words.
 
-   This program takes the name of an ASCII text file passed as a command 
-   line argument, and outputs the number of words in this file. A word is 
-   a sequence of alphabetic characters delimited by blanks. A sample text 
+   This program takes the name of an ASCII text file passed as a command
+   line argument, and outputs the number of words in this file. A word is
+   a sequence of alphabetic characters delimited by blanks. A sample text
    file i011.txt is provided for convenience (should you desire to test with
-   another text file, make sure it is in pure ASCII format, not UTF-8 or 
+   another text file, make sure it is in pure ASCII format, not UTF-8 or
    other milti-byte format.
 
    E.g.
@@ -28,7 +28,23 @@
 
 int wordcount (char *filename)
 {
-  return 0;
+
+    int i,x,n, fp;
+
+
+    fp = fopen (filename, "r");
+
+   n = fgetc(fp);
+
+    x=0;
+    for (i=0; filename[i];i++)
+    {
+        if (filename[i] = 32)
+            x = x+1;
+    }
+
+
+  return x;
 }
 
 /* Do not edit function main. */
@@ -43,10 +59,10 @@ int main (int argc, char **argv)
       printf (USAGE);
       exit(1);
     }
-  
+
   n = wordcount (argv[1]);
 
   printf ("%d\n", n);
-  
+
   return 0;
 }

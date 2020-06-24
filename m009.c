@@ -25,6 +25,28 @@
 
 void sort (int* vector, int n)
 {
+    int i, j, a;
+
+        for (i = 0; i < n; ++i)
+        {
+
+            for (j = i + 1; j < n; ++j)
+            {
+
+                if (vector[i] > vector[j])
+                {
+
+                    a =  vector[i];
+                    vector[i] = vector[j];
+                    vector[j] = a;
+
+                }
+
+            }
+
+        }
+
+
 }
 
 #define USAGE "m009 <num1> <nun2> ... \n"
@@ -37,23 +59,23 @@ int main (int argc, char **argv)
   int i;
 
   /* Read command line arguments into vector. */
-  
+
   for (i=1; i<argc; i++)
     values[i-1] = atoi(argv[i]);
 
 
   /* Sort vector. */
-  
+
   sort (values, argc-1);
 
 
   /* Output sorted vector. */
-  
+
   for (i=0; i<argc-1; i++)
     printf ("%d ", values[i]);
 
   printf ("\n");
-  
+
   return 0;
 }
 
@@ -62,5 +84,5 @@ int main (int argc, char **argv)
    Selection sort: https://en.wikipedia.org/wiki/Selection_sort
    Bubble sort: https://en.wikipedia.org/wiki/Bubble_sort
    Insertion sort: https://en.wikipedia.org/wiki/Insertion_sort
-  
+
  */
