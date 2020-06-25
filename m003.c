@@ -33,7 +33,8 @@ int is_prime (int a)
       b = 0;
     }
     else
-        b = b;
+        if (a == i/2 + 1)
+            b = b;
   }
 
 return b;
