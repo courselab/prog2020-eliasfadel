@@ -26,7 +26,8 @@ int is_prime (int a)
    int i, b;
 
     b=1;
- for (i = 2; i <= a/2; i++)
+
+ for (i = 2; i <= a -1; i++)
   {
     if (a%i == 0)
     {
@@ -35,6 +36,8 @@ int is_prime (int a)
     else
         if (a == i/2 + 1)
             b = b;
+        else
+            break;
   }
 
 return b;
