@@ -47,7 +47,7 @@ int day_of_week (int day, int month)
     v[10]= 30;
     v[11]= 31;
 
-    a = v[month-1] + day + 5;
+    a = v[month-1] + day - 1;
 
     b= a%7;
 

@@ -23,20 +23,20 @@
 
 int is_prime (int a)
 {
-   int i;
+   int i, b;
 
-
+    b=1;
  for (i = 2; i <= a/2; i++)
   {
     if (a%i == 0)
     {
-      return 0;
+      b = 0;
     }
     else
-        return 1;
+        b = b;
   }
 
-
+return b;
 
 }
 
