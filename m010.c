@@ -32,7 +32,7 @@ enum {sun, mon, tue, wed, thu, fri, sat};
 int day_of_week (int day, int month)
 {
     int v[12];
-    int a, b, c;
+    int a, b;
 
     v[0]= 31;
     v[1]= 29;
@@ -47,15 +47,12 @@ int day_of_week (int day, int month)
     v[10]= 30;
     v[11]= 31;
 
-    a = v[month-1] + day;
+    a = v[month-1] + day + 5;
 
     b= a%7;
 
-    c = b + 5;
-    if (c>= 7)
-        c = c-7;
 
-  return c;
+  return b;
 }
 
 /* Do not edit function main. */
