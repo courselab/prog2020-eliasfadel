@@ -26,31 +26,45 @@
 #define MAX 256
 
 /* Converts the string 's' from first-middle-last name
-   form into LAST-first-middle form. */
+   form into LAST-first-middle form.  */
 
 void lastname (char *s)
 {
-    int i, x;
+    int i, x, y, z;
     char t[MAX];
+    char k[MAX];
 
     strcpy(t,s);
+    z = strlen(t);
 
-    for (i=0;t[i]=0;i++)
-        {if (t[i] = 32)
-         x = i;
+    while ((t[i]!=0))
+        {
+            if (( t[i]=32))
+            {
+                x = i;
+            }
+                i++;
         }
-    for (x=x;t[x]=0;x++)
-        {if (t[x] > 'a' && t[i] < 'z')
-            t[x] = t[x]-32;
+    for (y = x + 1; y < z; y++)
+        {
+            if ((t[y] <= 122) && (t[y] >=97))
+            k[y-x-1] = t[y] - 32;
             else
-            t[x] = t[x];
+            k[y-x-1] = t[y];
         }
 
+    k[z-x-2]=',';
 
-    for (i=0; t[i] = 0; i++)
+    k[z-x-1]=' ';
+
+
+    for (y=0; y < x; y++)
     {
-        s[i] = t[i];
+       k[z-x+y]=t[y];
     }
+    k[z]=0;
+
+    strcpy(s,k);
 
 }
 

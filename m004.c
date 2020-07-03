@@ -25,31 +25,53 @@
    as the a positive binary number. If the string contains any
    characters other than '1's and '0's, truncate the string
    right before the spurious character (eg. truncate 110x001
-   into 110); an empty string means zero.
-
-   0011
+   into 110); an empty string means zero
 
    */
 
+int elev (int x)
+{
+    int a,b;
+    b = 1;
+    if (x > 0)
+    {
+    for (a = 1; a <= x; a++)
+       b = b*2;
+    }
+    else
+        b = 1;
+
+    return b;
+}
+
 int decimal (char *b)
 {
-    int n, i, x, valor;
 
-    valor = 0;
-
-    n = strlen(b);
+  int x, y, z, i;
 
 
-  for (i=n-1; n>=0; n--)
-  {
-      x = 2^i;
+    char a[40];
 
-      printf("%d ; %d  ; h= %d\n", b[i], b[i]-'0', x);
+    z = 0;
+    x = strlen (b);
+    for (i = 0;i <= x-1;i++)
+    {
 
-      valor = (valor + (b[i]- '0')*x);
-  }
+        if ((b[i] != '1') && (b[i] != '0'))
+            break;
+        z += 1;
+    }
+    strncpy(a, b , z);
+    a[z + 1]='\0';
 
-  return valor;
+
+    y = 0;
+    for(i = z - 1; i >= 0; i--)
+    {
+        if ( a[i] == '1' )
+        y = y + elev(z - 1 - i);
+    }
+    return y;
 }
 
 #define USAGE "m004 <string>\n"
@@ -72,3 +94,4 @@ int main (int argc, char **argv)
 
   return 0;
 }
+

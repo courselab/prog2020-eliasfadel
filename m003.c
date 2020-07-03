@@ -23,24 +23,37 @@
 
 int is_prime (int a)
 {
-   int i, b;
+   int i, b, c;
 
-    b=1;
+b=1;
 
- for (i = 2; i <= a -1; i++)
+
+    if (a>2)
+    {
+
+        for (i = a -1; i >1; i--)
   {
     if (a%i == 0)
-    {
-      b = 0;
-    }
-    else
-        if (a == i/2 + 1)
-            b = b;
-        else
-            break;
-  }
+          b = 0;
 
-return b;
+  }
+    }
+    if (a==0)
+        c=0;
+    else
+        if (a==1)
+        c=0;
+        else
+        if (a==2)
+        c=1;
+        else
+            if (b==0)
+            c=0;
+            else
+                c=1;
+
+
+return c;
 
 }
 
